@@ -11,6 +11,13 @@ public class BuildingController : MonoBehaviour
     public Canvas canvas;
     public bool playerHasFood = false;
 
+    private void Awake()
+    {
+        
+    }
+
+
+
     private void Start()
     {
         DeliverText.text = "Hello Cus...oh its you";
