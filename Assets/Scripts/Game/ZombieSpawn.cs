@@ -14,6 +14,7 @@ public class ZombieSpawn : MonoBehaviour
     [Header("Variables to spawn")]
     [SerializeField] private Transform[] spawn;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject cemetery;
     [SerializeField] private Zombie zombie;
     [SerializeField] private float timeRespawn;
     [SerializeField] private int maxZombies;
@@ -23,8 +24,6 @@ public class ZombieSpawn : MonoBehaviour
 
     void Start()
     {
-
-
         maxX = spawn.Max(spawn => spawn.position.x);
         minX = spawn.Min(spawn => spawn.position.x);
         maxY = spawn.Max(spawn => spawn.position.y);
@@ -49,7 +48,7 @@ public class ZombieSpawn : MonoBehaviour
     {
         Vector2 randPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
 
-        zombie.SetEnemy(player);
+        zombie.SetTargets(player, cemetery);
 
         zombieCounter++;
 

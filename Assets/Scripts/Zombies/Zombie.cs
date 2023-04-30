@@ -5,14 +5,21 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    [SerializeField] private GameObject currentEnemy;
+    [Header("Zombie Variables")]
+
+    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject bag;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject cemetery;
+
     [SerializeField] private float initialSpeed;
     [SerializeField] private float currentSpeed;
     [SerializeField] private float addSpeed;
+    [SerializeField] private float maxEnemyDistance;
+
+    [SerializeField]private bool hasABag = false;
     private float distance;
     private bool isActive;
-    [SerializeField] private float maxEnemyDistance;
     public int health;
     public bool hasBeenAttacked;
     private float timer;
@@ -27,19 +34,6 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInRangeToChase())
-        {
-            var aux = Vector2.MoveTowards(transform.position, currentEnemy.transform.position,
-                Time.deltaTime * currentSpeed);
-            rb.MovePosition(aux);
-           
-            currentSpeed += addSpeed;
-        }
-        else
-        {
-            currentSpeed = initialSpeed;
-        }
-
         if (hasBeenAttacked)
         {
             timer += Time.deltaTime;
@@ -49,12 +43,56 @@ public class Zombie : MonoBehaviour
                 hasBeenAttacked = false;
             }
         }
-        GetEnemyDistance();
+
+        if (!isAlive()) 
+        { 
+            Destroy(this);
+        }
+
+        if(hasABag)
+        {
+            target = cemetery;
+
+            bag.transform.position = transform.position;
+
+            if (transform.position == target.transform.position)
+            {
+                hasABag = false;
+                Destroy(bag);
+            }
+
+            var aux = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * currentSpeed);
+            rb.MovePosition(aux);
+            currentSpeed = 10;
+        }
+        else
+        {
+            target = bag;
+
+            if(transform.position == target.transform.position)
+            {
+                hasABag = true;
+            }
+
+            if (isInRangeToChase())
+            {
+                var aux = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * currentSpeed);
+                rb.MovePosition(aux);
+                currentSpeed += addSpeed;
+            }
+            else
+            {
+                currentSpeed = initialSpeed;
+            }
+        }
+
+        GetTargetDistance();
     }
 
-    public void SetEnemy(GameObject enemy)
+    public void SetTargets(GameObject bag, GameObject cemetery)
     {
-        currentEnemy = enemy;
+        this.bag = bag;
+        this.cemetery = cemetery;
     }
 
     public void SetActiveState(bool state = true)
@@ -62,16 +100,16 @@ public class Zombie : MonoBehaviour
         isActive = state;
     }
 
-    private void GetEnemyDistance()
+    private void GetTargetDistance()
     {
-        if (currentEnemy != null)
-            distance = Vector2.Distance(transform.position, currentEnemy.transform.position);
+        if (target != null)
+            distance = Vector2.Distance(transform.position, target.transform.position);
 
     }
 
     private bool isInRangeToChase()
     {
-        if (currentEnemy != null)
+        if (target != null)
         {
             return distance < maxEnemyDistance;
         }
@@ -95,6 +133,8 @@ public class Zombie : MonoBehaviour
     {
        Gizmos.color = Color.black;
        Gizmos.DrawWireSphere(transform.position,maxEnemyDistance);
+       Gizmos.color = Color.red;
+       Gizmos.DrawLine(transform.position,target.transform.position);
    
     }
 
