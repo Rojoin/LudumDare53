@@ -3,66 +3,58 @@ using System.Collections.Generic;
 
 public class CreateRandomOrder : MonoBehaviour
 {
-    public List<string> DeliveryBuildingsList = new List<string>();
+    public List<Building> buildingsList = new List<Building>();
 
-    public List<string> OrdersList = new List<string>();
+    public List<House> houseList = new List<House>();
 
     int randomNumber;
-
 
     // Start is called before the first frame update
     void Start()
     {
 
-        DeliveryBuildingsList.Add("building1");
-        DeliveryBuildingsList.Add("building2");
-        DeliveryBuildingsList.Add("building3");
-        OrdersList.Add("Order1");
-        OrdersList.Add("Order2");
-        OrdersList.Add("Order3");
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            getOrder();
-        }
     }
 
 
-    string RandomBuildings()
-    {
-        string building = DeliveryBuildingsList[randomNumber];
 
-        DeliveryBuildingsList.Remove(building);
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    if (Input.GetKeyUp(KeyCode.Space))
+    //    {
+    //        getOrder();
+    //    }
+    //}
 
-        return building;
+    //string RandomBuildings()
+    //{
+    //    string building = BuildingsList[randomNumber];
 
-    }
+    //    BuildingsList.Remove(building);
 
+    //    return building;
 
-    string RandomOrders()
-    {
-        string Order = OrdersList[randomNumber];
+    //}
 
-        DeliveryBuildingsList.Remove(Order);
+    //string RandomOrders()
+    //{
+    //    string Order = buildingsList[randomNumber];
 
-        return Order;
-    }
+    //   buildingsList.Remove(Order);
 
-    void getOrder()
-    {
-        if (DeliveryBuildingsList.Count > 0)
-        {
-            Debug.Log("Tienes que buscar: " + RandomOrders());
-            Debug.Log("En: " + RandomBuildings());
-        }
-        else
-        {
-            Debug.Log("No tienes mas ordenes");
-        }
-    }
+    //    return Order;
+    //}
+
+    //void getOrder()
+    //{
+    //    if (buildingsList.Count > 0)
+    //    {
+    //        Debug.Log("Tienes que buscar: " + RandomOrders());
+    //        Debug.Log("En: " + RandomBuildings());
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("No tienes mas ordenes");
+    //    }
+    //}
 }
