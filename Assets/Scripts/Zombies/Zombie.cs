@@ -76,6 +76,7 @@ public class Zombie : MonoBehaviour
             if(isInRangeToPick())
             {
                 hasABag = true;
+                bag.transform.parent = null;
             }
 
             if (isInRangeToChase())
