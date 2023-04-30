@@ -50,7 +50,7 @@ public class Zombie : MonoBehaviour
 
         if (!isAlive()) 
         { 
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         if(hasABag)

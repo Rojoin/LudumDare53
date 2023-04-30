@@ -211,7 +211,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -261,11 +261,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7731997590394970129, guid: 976cbe42cec11e348a2d48ea1efdd76c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.39
+      value: -4.24
       objectReference: {fileID: 0}
     - target: {fileID: 7731997590394970129, guid: 976cbe42cec11e348a2d48ea1efdd76c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.0734448
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7731997590394970129, guid: 976cbe42cec11e348a2d48ea1efdd76c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -407,7 +407,7 @@ MonoBehaviour:
   cemetery: {fileID: 361165638}
   zombie: {fileID: 4395559045898289289, guid: 848239ce73fbcc64d8abb9f269c59934, type: 3}
   timeRespawn: 1
-  maxZombies: 5
+  maxZombies: 1
 --- !u!4 &1600902848
 Transform:
   m_ObjectHideFlags: 0

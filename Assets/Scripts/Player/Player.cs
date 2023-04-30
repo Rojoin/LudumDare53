@@ -93,9 +93,6 @@ public class Player : MonoBehaviour
             StartCoroutine(Interact());
         }
 
-
-
-
     }
 
     private void DropPackage()
