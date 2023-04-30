@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Building : MonoBehaviour
 {
+    public ZombieSpawn zombieSpawn;
     public static int count = 0;
     public int index = 0;
     public bool active = false;
@@ -35,9 +36,9 @@ public class Building : MonoBehaviour
             {
                 buildingText.text = "Toma tu pedido :)";
                 delivered = true;
+                zombieSpawn.SetZombieTarget(package);
                 other.GetComponent<Player>().SetPackage(package);
             }
-
         }
     }
 }

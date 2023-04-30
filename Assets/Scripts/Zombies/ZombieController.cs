@@ -4,31 +4,20 @@ using UnityEngine;
 
 public class ZombieController : MonoBehaviour
 {
-    [SerializeField] private List<ZombieController> zombies;
-    [SerializeField] private int MaxZombies;
-    private ZombieController zombiePrefab;
+    [SerializeField] public static List<GameObject> zombieList;
+    [SerializeField] private GameObject cementery;
 
     void Start()
     {
-        for (int i = 0; i < MaxZombies; i++)
-        {
-            zombies.Add(Instantiate(zombiePrefab));
-        }
 
-        foreach (var zombie in zombies)
-        {
-            zombie.Start();
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void ActivateZombies()
-    {
-      
-    }
+
 }

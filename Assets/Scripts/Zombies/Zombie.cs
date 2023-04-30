@@ -92,10 +92,14 @@ public class Zombie : MonoBehaviour
 
     }
 
-    public void SetTargets(GameObject bag, GameObject cemetery)
+    public void SetCementery(GameObject cemetery)
+    {
+        this.cemetery = cemetery;
+    }
+
+    public void SetTarget(GameObject bag)
     {
         this.bag = bag;
-        this.cemetery = cemetery;
     }
 
     public void SetActiveState(bool state = true)
@@ -107,7 +111,8 @@ public class Zombie : MonoBehaviour
     {
         if (target != null)
             distance = Vector2.Distance(transform.position, target.transform.position);
-
+        else
+            distance = 1000;
     }
 
     private bool isInRangeToChase()
@@ -146,12 +151,11 @@ public class Zombie : MonoBehaviour
     }
     void OnDrawGizmos()
     {
-       Gizmos.color = Color.black;
-       Gizmos.DrawWireSphere(transform.position,maxEnemyDistance);
-       Gizmos.color = Color.red;
-       Gizmos.DrawWireSphere(transform.position,maxDistanceToPick);
-       Gizmos.DrawLine(transform.position,target.transform.position);
-   
+      // Gizmos.color = Color.black;
+      // Gizmos.DrawWireSphere(transform.position,maxEnemyDistance);
+      // Gizmos.color = Color.red;
+      // Gizmos.DrawWireSphere(transform.position,maxDistanceToPick);
+      // Gizmos.DrawLine(transform.position,target.transform.position);
     }
 
 }

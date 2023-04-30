@@ -5,7 +5,7 @@ using System.Linq;
 
 public class ZombieSpawn : MonoBehaviour
 {
-
+    [SerializeField] private List<Zombie> zombieList;
     private float maxX;
     private float minX;
     private float maxY;
@@ -14,6 +14,7 @@ public class ZombieSpawn : MonoBehaviour
     [Header("Variables to spawn")]
     [SerializeField] private Transform[] spawn;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject target;
     [SerializeField] private GameObject cemetery;
     [SerializeField] private Zombie zombie;
     [SerializeField] private float timeRespawn;
@@ -28,6 +29,7 @@ public class ZombieSpawn : MonoBehaviour
         minX = spawn.Min(spawn => spawn.position.x);
         maxY = spawn.Max(spawn => spawn.position.y);
         minY = spawn.Min(spawn => spawn.position.y);
+        target = null;
     }
 
 
@@ -41,6 +43,10 @@ public class ZombieSpawn : MonoBehaviour
 
             SpawnZombie();
         }
+        foreach (var zomby in zombieList)
+        {
+            zomby.SetTarget(target);
+        }
     }
 
 
@@ -48,11 +54,17 @@ public class ZombieSpawn : MonoBehaviour
     {
         Vector2 randPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
 
-        zombie.SetTargets(player, cemetery);
+        zombie.SetCementery(cemetery);
+        zombie.SetTarget(null);
 
         zombieCounter++;
 
-        Instantiate(zombie, randPosition, Quaternion.identity);
-    }
+        Zombie a = Instantiate(zombie, randPosition, Quaternion.identity);
+        zombieList.Add(a);
 
+    }
+    public void SetZombieTarget(GameObject target)
+    {
+        this.target = target;
+    }
 }
