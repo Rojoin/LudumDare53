@@ -29,8 +29,10 @@ public class Zombie : MonoBehaviour
     {
         if (isInRangeToChase())
         {
-            transform.position = Vector2.MoveTowards(transform.position, currentEnemy.transform.position,
+            var aux = Vector2.MoveTowards(transform.position, currentEnemy.transform.position,
                 Time.deltaTime * currentSpeed);
+            rb.MovePosition(aux);
+           
             currentSpeed += addSpeed;
         }
         else
