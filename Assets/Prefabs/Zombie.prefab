@@ -121,12 +121,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ac55afc2c6ab34bbd936c58d4afa97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEnemy: {fileID: 0}
-  rb: {fileID: 0}
+  target: {fileID: 0}
+  bag: {fileID: 0}
+  rb: {fileID: 4395559045898289288}
+  cemetery: {fileID: 0}
   initialSpeed: 1
   currentSpeed: 0
   addSpeed: 0.002
   maxEnemyDistance: 5
+  maxDistanceToPick: 0.3
+  hasABag: 0
   health: 5
   hasBeenAttacked: 0
   maxEnemyInvencibilty: 0.15
@@ -150,7 +154,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!61 &4395559045898289291
 BoxCollider2D:
   m_ObjectHideFlags: 0

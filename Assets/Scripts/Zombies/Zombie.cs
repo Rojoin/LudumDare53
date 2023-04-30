@@ -5,14 +5,22 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    [SerializeField] private GameObject currentEnemy;
+    [Header("Zombie Variables")]
+
+    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject bag;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject cemetery;
+
     [SerializeField] private float initialSpeed;
     [SerializeField] private float currentSpeed;
     [SerializeField] private float addSpeed;
+    [SerializeField] private float maxEnemyDistance;
+    [SerializeField] private float maxDistanceToPick;
+
+    [SerializeField]private bool hasABag = false;
     private float distance;
     private bool isActive;
-    [SerializeField] private float maxEnemyDistance;
     public int health;
     public bool hasBeenAttacked;
     private float timer;
@@ -20,6 +28,7 @@ public class Zombie : MonoBehaviour
 
     void Start()
     {
+        distance = 1000;
         rb = GetComponent<Rigidbody2D>();
         timer = 0.0f;
     }
@@ -27,18 +36,7 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInRangeToChase())
-        {
-            var aux = Vector2.MoveTowards(transform.position, currentEnemy.transform.position,
-                Time.deltaTime * currentSpeed);
-            rb.MovePosition(aux);
-           
-            currentSpeed += addSpeed;
-        }
-        else
-        {
-            currentSpeed = initialSpeed;
-        }
+        GetTargetDistance();
 
         if (hasBeenAttacked)
         {
@@ -49,12 +47,55 @@ public class Zombie : MonoBehaviour
                 hasBeenAttacked = false;
             }
         }
-        GetEnemyDistance();
+
+        if (!isAlive()) 
+        { 
+            Destroy(this);
+        }
+
+        if(hasABag)
+        {
+            target = cemetery;
+
+            bag.transform.position = transform.position;
+            GetTargetDistance();
+            if (isInRangeToPick())
+            {
+                hasABag = false;
+                Destroy(bag);
+            }
+
+            var aux = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * currentSpeed);
+            rb.MovePosition(aux);
+            currentSpeed = 10;
+        }
+        else
+        {
+            target = bag;
+
+            if(isInRangeToPick())
+            {
+                hasABag = true;
+            }
+
+            if (isInRangeToChase())
+            {
+                var aux = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * currentSpeed);
+                rb.MovePosition(aux);
+                currentSpeed += addSpeed;
+            }
+            else
+            {
+                currentSpeed = initialSpeed;
+            }
+        }
+
     }
 
-    public void SetEnemy(GameObject enemy)
+    public void SetTargets(GameObject bag, GameObject cemetery)
     {
-        currentEnemy = enemy;
+        this.bag = bag;
+        this.cemetery = cemetery;
     }
 
     public void SetActiveState(bool state = true)
@@ -62,18 +103,30 @@ public class Zombie : MonoBehaviour
         isActive = state;
     }
 
-    private void GetEnemyDistance()
+    private void GetTargetDistance()
     {
-        if (currentEnemy != null)
-            distance = Vector2.Distance(transform.position, currentEnemy.transform.position);
+        if (target != null)
+            distance = Vector2.Distance(transform.position, target.transform.position);
 
     }
 
     private bool isInRangeToChase()
     {
-        if (currentEnemy != null)
+        if (target != null)
         {
             return distance < maxEnemyDistance;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private bool isInRangeToPick()
+    {
+        if (target != null)
+        {
+            return distance < maxDistanceToPick;
         }
         else
         {
@@ -95,6 +148,9 @@ public class Zombie : MonoBehaviour
     {
        Gizmos.color = Color.black;
        Gizmos.DrawWireSphere(transform.position,maxEnemyDistance);
+       Gizmos.color = Color.red;
+       Gizmos.DrawWireSphere(transform.position,maxDistanceToPick);
+       Gizmos.DrawLine(transform.position,target.transform.position);
    
     }
 
