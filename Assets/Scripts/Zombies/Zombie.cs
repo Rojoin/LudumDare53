@@ -9,6 +9,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float initialSpeed;
     [SerializeField] private float currentSpeed;
+    [SerializeField] private float addSpeed;
     private float distance;
     private bool isActive;
     [SerializeField] private float maxEnemyDistance;
@@ -30,7 +31,7 @@ public class Zombie : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, currentEnemy.transform.position,
                 Time.deltaTime * currentSpeed);
-            currentSpeed += 0.00002f;
+            currentSpeed += addSpeed;
         }
         else
         {
