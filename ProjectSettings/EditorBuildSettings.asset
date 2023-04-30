@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Nacho/Menu.unity
+    guid: 8f3b39578825d5544bf8507033b6e684
+  - enabled: 1
+    path: Assets/Scenes/Nacho/Game.unity
+    guid: f16875a20b6539945898890f44041cd7
   m_configObjects: {}
