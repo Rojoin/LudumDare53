@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject playerSprite;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
+    [SerializeField] private GameObject packageSlot;
     private bool isStunned;
     public bool hasPackage;
     private Rigidbody2D rb2D;
     private bool isFacingRight;
     [SerializeField] private float attackAnimationTime;
     private bool isAttacking;
+    public bool isInteracting;
 
 
     void Start()
@@ -29,6 +31,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (packageSlot != null)
+        {
+            hasPackage = true;
+        }
         FlipCharacter();
     }
 
@@ -37,6 +43,14 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    public void SetPackage(GameObject package)
+    {
+
+        packageSlot = package;
+        package.transform.SetParent(this.transform);
+        package.transform.localPosition = Vector3.zero;
+        hasPackage = true;
+    }
     private void FlipCharacter()
     {
         if (isFacingRight && direction.x < 0f)
@@ -61,30 +75,35 @@ public class Player : MonoBehaviour
 
     void OnAction()
     {
-        if (!isAttacking)
+        if (!isAttacking && !hasPackage)
         {
             StartCoroutine(Attack());
         }
-
-        switch (hasPackage)
-        {
-            case true:
-                DropPackage();
-                break;
-            case false:
-                TakePackage();
-                break;
-        }
     }
 
-    private void TakePackage()
+    void OnInteract(InputValue value)
     {
-        throw new System.NotImplementedException();
+
+        if (packageSlot != null)
+        {
+            DropPackage();
+        }
+        else  if (!isInteracting)
+        {
+            StartCoroutine(Interact());
+        }
+
+
+
+
     }
 
     private void DropPackage()
     {
-        throw new System.NotImplementedException();
+        packageSlot.transform.parent = null;
+        packageSlot.transform.position = transform.position + Vector3.down;
+        packageSlot = null;
+        hasPackage = false;
     }
 
     private void Flip()
@@ -107,6 +126,21 @@ public class Player : MonoBehaviour
         isAttacking = false;
         yield break;
 
+    } IEnumerator Interact()
+    {
+        isInteracting = true;
+        yield return new WaitForSeconds(attackAnimationTime);
+        isInteracting = false;
+        yield break;
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Package") && !hasPackage && isInteracting)
+        {
+            SetPackage(collider.transform.gameObject);
+        }
     }
 
 }
