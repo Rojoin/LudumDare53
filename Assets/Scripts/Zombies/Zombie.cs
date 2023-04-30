@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ZombieMovement : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     [SerializeField] private GameObject currentEnemy;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float speed;
+    [SerializeField] private float initialSpeed;
+    [SerializeField] private float currentSpeed;
     private float distance;
     private bool isActive;
     [SerializeField] private float maxEnemyDistance;
-    private bool inRange;
+    public int health;
+    public bool hasBeenAttacked;
+    private float timer;
+    public float maxEnemyInvencibilty;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        timer = 0.0f;
     }
 
     // Update is called once per frame
@@ -22,9 +29,23 @@ public class ZombieMovement : MonoBehaviour
         if (isInRangeToChase())
         {
             transform.position = Vector2.MoveTowards(transform.position, currentEnemy.transform.position,
-                Time.deltaTime * speed);
+                Time.deltaTime * currentSpeed);
+            currentSpeed += 0.00002f;
+        }
+        else
+        {
+            currentSpeed = initialSpeed;
         }
 
+        if (hasBeenAttacked)
+        {
+            timer += Time.deltaTime;
+            if (timer > maxEnemyInvencibilty)
+            {
+                timer = 0.0f;
+                hasBeenAttacked = false;
+            }
+        }
         GetEnemyDistance();
     }
 
@@ -37,6 +58,7 @@ public class ZombieMovement : MonoBehaviour
     {
         isActive = state;
     }
+
     private void GetEnemyDistance()
     {
         if (currentEnemy != null)
@@ -55,4 +77,22 @@ public class ZombieMovement : MonoBehaviour
             return false;
         }
     }
+
+    public void LoseHealth(int damage)
+    {
+        health -= damage;
+        Debug.Log(health);
+    }
+
+    private bool isAlive()
+    {
+        return health > 0;
+    }
+    void OnDrawGizmos()
+    {
+       Gizmos.color = Color.black;
+       Gizmos.DrawWireSphere(transform.position,maxEnemyDistance);
+   
+    }
+
 }
