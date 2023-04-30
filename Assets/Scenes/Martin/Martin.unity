@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: House 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2007330667533594152, guid: 0b6deb3491562cc4f9b45cff66499686, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2007330667533594157, guid: 0b6deb3491562cc4f9b45cff66499686, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -201,6 +205,10 @@ PrefabInstance:
     - target: {fileID: 2007330667533594152, guid: 0b6deb3491562cc4f9b45cff66499686, type: 3}
       propertyPath: m_Name
       value: House 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007330667533594152, guid: 0b6deb3491562cc4f9b45cff66499686, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2007330667533594157, guid: 0b6deb3491562cc4f9b45cff66499686, type: 3}
       propertyPath: m_RootOrder
@@ -366,6 +374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3019878451000067961, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
 --- !u!114 &1272639575 stripped
@@ -433,6 +445,10 @@ PrefabInstance:
     - target: {fileID: 3019878451000067961, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
       propertyPath: m_Name
       value: Building 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3019878451000067961, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
@@ -680,6 +696,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4855198566786789861, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855198566786789861, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475152329337322625, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
+      propertyPath: m_Color.b
+      value: 0.036445353
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475152329337322625, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
+      propertyPath: m_Color.g
+      value: 0.036445353
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475152329337322625, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3679245
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
 --- !u!114 &225066398006406297 stripped
@@ -687,12 +723,43 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2235592837270237451, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
   m_PrefabInstance: {fileID: 225066398006406296}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 225066398006406298}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8b04e8871a2deb4786531cd8b2840c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &225066398006406298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3019878451000067961, guid: 3f424ee333188604ba89aa506c017d13, type: 3}
+  m_PrefabInstance: {fileID: 225066398006406296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &225066398006406299
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225066398006406298}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &2007330666910080522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -703,6 +770,10 @@ PrefabInstance:
     - target: {fileID: 2007330667533594152, guid: 0b6deb3491562cc4f9b45cff66499686, type: 3}
       propertyPath: m_Name
       value: House 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007330667533594152, guid: 0b6deb3491562cc4f9b45cff66499686, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2007330667533594157, guid: 0b6deb3491562cc4f9b45cff66499686, type: 3}
       propertyPath: m_RootOrder
