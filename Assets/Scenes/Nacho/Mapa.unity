@@ -8152,17 +8152,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2464409247853334988, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.22798765
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464409247853334988, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.04717177
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464409247853334988, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.4651117
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056253648241708493, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056253648241708493, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056253648241708493, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3751073087648253397, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
       propertyPath: m_RootOrder
       value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 3751073087648253397, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.14
+      value: -19.82
       objectReference: {fileID: 0}
     - target: {fileID: 3751073087648253397, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.93
+      value: 11.15
       objectReference: {fileID: 0}
     - target: {fileID: 3751073087648253397, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8199,6 +8223,14 @@ PrefabInstance:
     - target: {fileID: 4521308871959874323, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
       propertyPath: m_Name
       value: Arbol (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859496198338713773, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6911578
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859496198338713773, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.90957856
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f61c451ede7f7a149b38aec61b7f1d3c, type: 3}
@@ -17393,11 +17425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 612570351459648795, guid: 3ff1b35b90e82c841bbcc3cc5dc85cf6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.5
+      value: -22.77
       objectReference: {fileID: 0}
     - target: {fileID: 612570351459648795, guid: 3ff1b35b90e82c841bbcc3cc5dc85cf6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.47
+      value: 10.75
       objectReference: {fileID: 0}
     - target: {fileID: 612570351459648795, guid: 3ff1b35b90e82c841bbcc3cc5dc85cf6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17434,6 +17466,18 @@ PrefabInstance:
     - target: {fileID: 612570351459648795, guid: 3ff1b35b90e82c841bbcc3cc5dc85cf6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076964741391740082, guid: 3ff1b35b90e82c841bbcc3cc5dc85cf6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076964741391740082, guid: 3ff1b35b90e82c841bbcc3cc5dc85cf6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076964741391740082, guid: 3ff1b35b90e82c841bbcc3cc5dc85cf6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -544643061
       objectReference: {fileID: 0}
     - target: {fileID: 6288412885257153134, guid: 3ff1b35b90e82c841bbcc3cc5dc85cf6, type: 3}
       propertyPath: m_Name
