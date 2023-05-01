@@ -4838,22 +4838,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3157794998552900541, guid: 59426dd6ac2a6124296519aafc2451cc, type: 3}
-      propertyPath: button
-      value: 
-      objectReference: {fileID: 8300000, guid: 53478010adcc1ca4ab7764ce97649276, type: 3}
-    - target: {fileID: 3157794998552900541, guid: 59426dd6ac2a6124296519aafc2451cc, type: 3}
-      propertyPath: mainMenu
-      value: 
-      objectReference: {fileID: 8300000, guid: 8990859f4b5cb2e40abadf0908ea02ef, type: 3}
     - target: {fileID: 3157794998552900542, guid: 59426dd6ac2a6124296519aafc2451cc, type: 3}
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 3157794998792814413, guid: 59426dd6ac2a6124296519aafc2451cc, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8990859f4b5cb2e40abadf0908ea02ef, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59426dd6ac2a6124296519aafc2451cc, type: 3}
 --- !u!1 &1513297987

@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 3157794998792814413}
   effectSource: {fileID: 3157794999900803678}
-  button: {fileID: 8300000, guid: 2c8790b0b01ac3749a5bccca23e44b1e, type: 3}
+  button: {fileID: 8300000, guid: 53478010adcc1ca4ab7764ce97649276, type: 3}
+  mainMenu: {fileID: 8300000, guid: 8990859f4b5cb2e40abadf0908ea02ef, type: 3}
 --- !u!1 &3157794998792814415
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +92,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2eb95a4fe8402db4ab08dc1758dcf8db, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8990859f4b5cb2e40abadf0908ea02ef, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

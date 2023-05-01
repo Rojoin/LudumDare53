@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 direction;
     [SerializeField] private GameObject packageSlot;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip packageClip;
+    [SerializeField] private AudioClip attackClip;
     public bool hasPackage;
     private Rigidbody2D rb2D;
     private bool isFacingRight;
@@ -31,12 +33,15 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        if (!isAttacking)
+        {
+            Move();
+        }
     }
 
     void Update()
     {
-        animator.SetBool("hasPackage",hasPackage);
+        animator.SetBool("hasPackage", hasPackage);
         var aux = direction.x != 0 || direction.y != 0 ? true : false;
         animator.SetBool("isMoving", aux);
         if (packageSlot != null)
@@ -49,6 +54,7 @@ public class Player : MonoBehaviour
 
     public void SetPackage(GameObject package)
     {
+        SoundManager.Instance.PlaySound(packageClip);
         packageSlot = package;
         package.transform.SetParent(this.transform);
         package.transform.localPosition = Vector3.zero;
@@ -74,7 +80,7 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value)
     {
         direction = value.Get<Vector2>();
-        
+
     }
 
     public void OnMap()
@@ -97,7 +103,7 @@ public class Player : MonoBehaviour
         {
             DropPackage();
         }
-        else  if (!isInteracting)
+        else if (!isInteracting)
         {
             StartCoroutine(Interact());
         }
@@ -106,6 +112,7 @@ public class Player : MonoBehaviour
 
     private void DropPackage()
     {
+        SoundManager.Instance.PlaySound(packageClip);
         packageSlot.transform.parent = null;
         packageSlot.transform.position = transform.position + Vector3.down;
         packageSlot = null;
@@ -116,7 +123,7 @@ public class Player : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         var localScale = playerSprite.transform.localScale;
-        var localScale2 = playerSprite.transform.localScale;
+        var localScale2 = attackHitbox.transform.localScale;
         localScale.x *= -1f;
         localScale2.x *= -1f;
         playerSprite.transform.localScale = localScale;
@@ -125,6 +132,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Attack()
     {
+        SoundManager.Instance.PlaySound(attackClip);
         animator.SetTrigger("Attack");
         isAttacking = true;
         attackHitbox.SetActive(true);
@@ -133,7 +141,8 @@ public class Player : MonoBehaviour
         isAttacking = false;
         yield break;
 
-    } IEnumerator Interact()
+    }
+    IEnumerator Interact()
     {
         isInteracting = true;
         yield return new WaitForSeconds(attackAnimationTime);

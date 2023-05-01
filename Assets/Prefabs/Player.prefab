@@ -56,6 +56,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   packageSlot: {fileID: 0}
   animator: {fileID: 9049701231053583839}
+  packageClip: {fileID: 8300000, guid: 5a4da86ce8e4eee4bb37a04e05e6a799, type: 3}
+  attackClip: {fileID: 8300000, guid: ef71c5354d7a48044aa7d79ca2bbafd1, type: 3}
   hasPackage: 0
   attackAnimationTime: 0.2
   isInteracting: 0
