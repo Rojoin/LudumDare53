@@ -312,7 +312,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://carancho-sprite.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &61393670
@@ -625,7 +625,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/delfina937/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &202155411
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Artists:'
+  m_text: Artists
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
   m_sharedMaterial: {fileID: -3536202091436861254, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
@@ -952,7 +952,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 'https://rojoin.itch.io/  '
+          m_StringArgument: https://barraca93.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &300114615
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GameDesigners:'
+  m_text: GameDesigners
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
   m_sharedMaterial: {fileID: -3536202091436861254, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
@@ -1505,7 +1505,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/bbwreck/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &361402871
@@ -1697,7 +1697,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/thepossumcore/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &423792967
@@ -1889,7 +1889,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/xeekah/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &463347131
@@ -2256,7 +2256,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/franjonasthenumber6/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &559364556
@@ -2514,7 +2514,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/zoeluci.art/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &644912686
@@ -2706,7 +2706,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://rodrigomontenegro.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &657677161
@@ -3031,7 +3031,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://rojoin.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &705507993
@@ -3317,7 +3317,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://okamidesu.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &822268300
@@ -3630,7 +3630,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/ni_comori/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &947812325
@@ -3822,7 +3822,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://guiditooo.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &963194225
@@ -4182,7 +4182,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://fportep.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1247517307
@@ -4728,7 +4728,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://engineer-gandalf.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1513297987
@@ -4988,7 +4988,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://maxigianetti.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1680256425
@@ -5049,7 +5049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmers:'
+  m_text: Programmers
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
   m_sharedMaterial: {fileID: -3536202091436861254, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
@@ -5572,7 +5572,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://canine-lotus.itch.io/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1858043008
@@ -5764,7 +5764,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/_jellysky/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1894573835
@@ -5956,7 +5956,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.instagram.com/marcereinosa/
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1908421454
@@ -6017,7 +6017,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Producer: '
+  m_text: Producer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
   m_sharedMaterial: {fileID: -3536202091436861254, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
@@ -6152,7 +6152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Music:'
+  m_text: Music
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
   m_sharedMaterial: {fileID: -3536202091436861254, guid: c4e03cf6cbd3b2d499f93c4f0819cd64, type: 2}
@@ -6418,7 +6418,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://www.artstation.com/ann155
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2035090676
@@ -6743,6 +6743,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://instagram.com/palveidraws
           m_BoolArgument: 0
         m_CallState: 2
