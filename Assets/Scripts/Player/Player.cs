@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject attackHitbox;
     [SerializeField] private GameObject playerSprite;
+    [SerializeField] private Canvas map;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
     private bool isStunned;
@@ -27,15 +28,16 @@ public class Player : MonoBehaviour
         hasPackage = false;
     }
 
+    void FixedUpdate()
+    {
+        Move();
+    }
+
     void Update()
     {
         FlipCharacter();
     }
 
-    void FixedUpdate()
-    {
-        Move();
-    }
 
     private void FlipCharacter()
     {
@@ -57,6 +59,18 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value)
     {
         direction = value.Get<Vector2>();
+    }
+
+    public void OnMap()
+    {
+        if (!map.enabled)
+        {
+            map.enabled = true;
+        }
+        else
+        {
+            map.enabled = false;
+        }
     }
 
     void OnAction()
