@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5253385697216183619}
   - component: {fileID: 4045550463094819970}
   - component: {fileID: 4003065289886979899}
+  - component: {fileID: -63672579684796551}
   m_Layer: 0
   m_Name: Casa abandonada 1
   m_TagString: Untagged
@@ -111,3 +112,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.8688202, y: 2.4433289}
   m_EdgeRadius: 0
+--- !u!114 &-63672579684796551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280581996990529527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6567ce93e2be449a0a00026a77f224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  active: 0
+  killOnStart: 1
+  position: 0
+  hasPosition: 0
