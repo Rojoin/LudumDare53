@@ -35,7 +35,7 @@ public class MenuController : MonoBehaviour
     }
     public void ExitGame()
     {
-       // SoundManager.Instance.PlaySound(SoundManager.Instance.button);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         Debug.Log("Quit!");
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

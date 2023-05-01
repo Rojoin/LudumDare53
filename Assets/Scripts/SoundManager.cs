@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource effectSource;
     [SerializeField] public AudioClip button;
+    [SerializeField] public AudioClip mainMenu;
 
 
     private void Awake()
@@ -29,16 +30,23 @@ public class SoundManager : MonoBehaviour
     {
         effectSource.PlayOneShot(clip);
     }
+    public void PlayButtonSound()
+    {
+        effectSource.PlayOneShot(button);
+    }
 
     public AudioSource GetMusicSource()
     {
         return musicSource;
     }
-    public void ToggleAudio()
+    public void ToggleEffects()
     {
         effectSource.mute = !effectSource.mute;
-        musicSource.mute = !musicSource.mute;
-        PlaySound(button);
     }
 
+    public void ToggleMusic()
+    {
+        musicSource.mute = !musicSource.mute;
+    }
+   
 }
