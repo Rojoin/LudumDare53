@@ -15,7 +15,7 @@ public class CanvasController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.M)) 
+        if (Input.GetKeyDown(KeyCode.M)) 
         { 
             if (!canvas.enabled) 
             { 
