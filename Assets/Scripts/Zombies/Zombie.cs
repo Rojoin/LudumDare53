@@ -35,6 +35,7 @@ public class Zombie : MonoBehaviour
     public Action<Zombie> OnZombieDeath;
 
     static int zombieCount = 0;
+    static bool zombieGrabbedPackage = false;
 
     private void Awake()
     {
@@ -75,10 +76,16 @@ public class Zombie : MonoBehaviour
 
             bag.transform.position = transform.position;
             GetTargetDistance();
-            if (IsInRangeToPick())
+            if (zombieGrabbedPackage)
             {
-                hasABag = false;
-                Destroy(bag);
+                if (IsInRangeToPick())
+                {
+                    hasABag = false;
+                    zombieGrabbedPackage = false;
+                    //Destroy(bag);
+                    LoseHealth(health);
+                    //Crear nuevo pedido y no dar puntos
+                }
             }
 
             var aux = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * currentSpeed);
@@ -92,10 +99,14 @@ public class Zombie : MonoBehaviour
             target = bag;
             animator.SetBool("hasPackage", false);
 
-            if (IsInRangeToPick())
+            if (!zombieGrabbedPackage)
             {
-                hasABag = true;
-                bag.transform.parent = null;
+                if (IsInRangeToPick())
+                {
+                    hasABag = true;
+                    bag.transform.parent = null;
+                    zombieGrabbedPackage = true;
+                }
             }
 
             if (IsInRangeToChase())
