@@ -113,9 +113,9 @@ GameObject:
   - component: {fileID: 7183481345296383434}
   - component: {fileID: 7722087241917100206}
   - component: {fileID: 7050855616128172718}
-  - component: {fileID: 3984867524111167552}
   - component: {fileID: 3122371696930647504}
   - component: {fileID: 8005595287190287048}
+  - component: {fileID: -6358393450593017702}
   m_Layer: 0
   m_Name: House 3
   m_TagString: Untagged
@@ -179,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 361ef5dff912eed40accc81be0113719, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -238,27 +238,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3984867524111167552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118148306453120562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b04e8871a2deb4786531cd8b2840c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieSpawn: {fileID: 0}
-  index: 0
-  active: 0
-  delivered: 0
-  buildingText: {fileID: 0}
-  package: {fileID: 0}
-  buildingMessage1: We already delovered your order, you have to deliver it!
-  buildingMessage2: Here is your order
-  buildingMessage3: You have no orders here
 --- !u!61 &3122371696930647504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -311,6 +290,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9608564, y: 0.5812819}
   m_EdgeRadius: 0
+--- !u!114 &-6358393450593017702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118148306453120562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6567ce93e2be449a0a00026a77f224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  active: 0
+  position: 0
+  hasPosition: 0
 --- !u!1 &3389379796493066943
 GameObject:
   m_ObjectHideFlags: 0
