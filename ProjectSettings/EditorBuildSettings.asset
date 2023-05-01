@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nacho/Game.unity
     guid: f16875a20b6539945898890f44041cd7
+  - enabled: 1
+    path: Assets/Scenes/Tomi/returnMenu.unity
+    guid: 3a37b3a81488172469c8a01dd8030d46
+  - enabled: 1
+    path: Assets/Scenes/Tomi/Cinemachine.unity
+    guid: 6c111390763974348ab6447e9ba98f88
   m_configObjects: {}
