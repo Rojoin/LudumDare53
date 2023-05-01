@@ -24,7 +24,6 @@ public class ZombieSpawn : MonoBehaviour
 
     private Transform[] spawnArea;
     private List<GameObject> zombieList = new List<GameObject>();
-    private float toSpawn = 0;
 
     private void Awake()
     {
