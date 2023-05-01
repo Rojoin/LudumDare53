@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 61393674}
   - component: {fileID: 61393673}
   - component: {fileID: 61393672}
+  - component: {fileID: 61393675}
   m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
@@ -422,6 +423,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 61393675}
+        m_TargetAssemblyTypeName: ImageChanger, Assembly-CSharp
+        m_MethodName: ChangeImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &61393673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +473,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61393670}
   m_CullTransparentMesh: 1
+--- !u!114 &61393675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61393670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a754089806cc5d14d8b4369b8c783519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 859d091dfc2b1f1418f0eb1c3e0f9081, type: 3}
+  image2: {fileID: 21300000, guid: 4d51e2dff24aeaf4993da58e6c3db92f, type: 3}
+  currentImage: {fileID: 61393673}
 --- !u!1 &141181309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,6 +3392,7 @@ GameObject:
   - component: {fileID: 822268304}
   - component: {fileID: 822268303}
   - component: {fileID: 822268302}
+  - component: {fileID: 822268305}
   m_Layer: 5
   m_Name: Sounds
   m_TagString: Untagged
@@ -3459,6 +3488,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 822268305}
+        m_TargetAssemblyTypeName: ImageChanger, Assembly-CSharp
+        m_MethodName: ChangeImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &822268303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3497,6 +3538,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822268300}
   m_CullTransparentMesh: 1
+--- !u!114 &822268305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822268300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a754089806cc5d14d8b4369b8c783519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 397d088b1fd3ce344bec3fe9a486844b, type: 3}
+  image2: {fileID: 21300000, guid: ba337189ff611fb41b41eb1eb67471ec, type: 3}
+  currentImage: {fileID: 822268303}
 --- !u!1 &872720771
 GameObject:
   m_ObjectHideFlags: 0
@@ -4844,7 +4900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3157794998792814413, guid: 59426dd6ac2a6124296519aafc2451cc, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.304
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157794999900803678, guid: 59426dd6ac2a6124296519aafc2451cc, type: 3}
+      propertyPath: m_Volume
+      value: 0.467
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59426dd6ac2a6124296519aafc2451cc, type: 3}
