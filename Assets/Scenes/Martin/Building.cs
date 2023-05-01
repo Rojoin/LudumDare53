@@ -19,14 +19,16 @@ public class Building : MonoBehaviour
     {
         index = count;
         count++;
-       // buildingText.text = "";
+        //buildingText.text = "";
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (active)
         {
+
+            if (other.tag != "Player") return;
             if (delivered)
             {
                 buildingText.text = "Ya te entregamos el pedido, no te lo vamos a volver a entregar";
@@ -38,6 +40,10 @@ public class Building : MonoBehaviour
                 zombieSpawn.SetZombieTarget(package);
                 other.GetComponent<Player>().SetPackage(package);
             }
+        }
+        else
+        {
+            buildingText.text = "No tenemos nada para darte";
         }
     }
 }
