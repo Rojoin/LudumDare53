@@ -12,7 +12,6 @@ public class Building : MonoBehaviour
     public bool active = false;
     public bool delivered = false;
     public TMP_Text buildingText;
-    private bool isPressed;
     public GameObject package;
 
 
