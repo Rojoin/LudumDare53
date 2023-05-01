@@ -11,4 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nacho/Game.unity
     guid: f16875a20b6539945898890f44041cd7
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 26129afe712ef9d49ab5b42a42fe26fc, type: 2}

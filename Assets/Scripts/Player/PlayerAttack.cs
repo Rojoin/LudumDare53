@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     private List<Zombie> zombies;   
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Entro");
+       
         if (collider.CompareTag("Enemy") && !collider.GetComponent<Zombie>().hasBeenAttacked)
         {
             collider.GetComponent<Zombie>().LoseHealth(damage);

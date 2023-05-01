@@ -291,6 +291,9 @@ MonoBehaviour:
   delivered: 0
   buildingText: {fileID: 0}
   package: {fileID: 0}
+  buildingMessage1: We already delovered your order, you have to deliver it!
+  buildingMessage2: Here is your order
+  buildingMessage3: You have no orders here
 --- !u!61 &2191885547812475648
 BoxCollider2D:
   m_ObjectHideFlags: 0

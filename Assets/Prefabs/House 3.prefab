@@ -179,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 361ef5dff912eed40accc81be0113719, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -256,6 +256,9 @@ MonoBehaviour:
   delivered: 0
   buildingText: {fileID: 0}
   package: {fileID: 0}
+  buildingMessage1: We already delovered your order, you have to deliver it!
+  buildingMessage2: Here is your order
+  buildingMessage3: You have no orders here
 --- !u!61 &3122371696930647504
 BoxCollider2D:
   m_ObjectHideFlags: 0
