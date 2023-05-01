@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject attackHitbox;
     [SerializeField] private GameObject playerSprite;
-    [SerializeField] private Canvas map;
+    [SerializeField] private GameObject map;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
     [SerializeField] private GameObject packageSlot;
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
 
     public void OnMap()
     {
-        map.enabled = !map.enabled;
+        map.SetActive(!map.activeSelf); ;
     }
 
     void OnAction()
