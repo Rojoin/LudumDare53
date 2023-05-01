@@ -7,7 +7,6 @@ public class Score : MonoBehaviour
 {
     [SerializeField] TMPro.TextMeshProUGUI ScoreText;
     public int score = 0;
-    public int MaxScore;
 
 
     // Start is called before the first frame update
@@ -23,7 +22,7 @@ public class Score : MonoBehaviour
 
     public void UpdateScore()
     {
-        ScoreText.text = "Score: " + score;
+        ScoreText.text = "$: " + score;
     }
 
     // Update is called once per frame
