@@ -13,6 +13,10 @@ public class Building : MonoBehaviour
     public bool delivered = false;
     public TMP_Text buildingText;
     public GameObject package;
+    public string buildingMessage1 = "We already delovered your order, you have to deliver it!";
+    public string buildingMessage2 = "Here is your order";
+    public string buildingMessage3 = "You have no orders here";
+
 
 
     void Awake()
@@ -31,11 +35,11 @@ public class Building : MonoBehaviour
             if (other.tag != "Player") return;
             if (delivered)
             {
-                buildingText.text = "Ya te entregamos el pedido, no te lo vamos a volver a entregar";
+                buildingText.text = buildingMessage1;
             }
             else
             {
-                buildingText.text = "Toma tu pedido :)";
+                buildingText.text = buildingMessage2;
                 delivered = true;
                 zombieSpawn.SetZombieTarget(package);
                 other.GetComponent<Player>().SetPackage(package);
@@ -43,7 +47,7 @@ public class Building : MonoBehaviour
         }
         else
         {
-            buildingText.text = "No tenemos nada para darte";
+            buildingText.text = buildingMessage3;
         }
     }
 }
