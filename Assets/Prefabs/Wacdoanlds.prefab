@@ -391,7 +391,7 @@ RectTransform:
   m_GameObject: {fileID: 7548473763399369685}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.064570315, y: 0.072496876, z: 0.1}
+  m_LocalScale: {x: 0.06214893, y: 0.067059614, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4218084013758627578}
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'placeHolder
+  m_text: 'Here you go. Run!
 
 '
   m_isRightToLeft: 0
