@@ -21,7 +21,6 @@ public class MenuController : MonoBehaviour
 
     private void ChangeScene()
     {
-        MenuScene.SetActive(!isCreditsOn);
         CreditsScene.SetActive(isCreditsOn);
     }
 
