@@ -337,10 +337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b04e8871a2deb4786531cd8b2840c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombieSpawn: {fileID: 0}
   index: 0
   active: 0
   delivered: 0
-  buildingText: {fileID: 0}
+  buildingText: {fileID: 8524909896597792013}
+  package: {fileID: 0}
 --- !u!61 &8171716731784255376
 BoxCollider2D:
   m_ObjectHideFlags: 0

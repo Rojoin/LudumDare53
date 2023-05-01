@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
     [SerializeField] private GameObject packageSlot;
-    private bool isStunned;
+    [SerializeField] private Animator animator;
     public bool hasPackage;
     private Rigidbody2D rb2D;
     private bool isFacingRight;
@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         isAttacking = false;
-        isStunned = false;
         hasPackage = false;
     }
 
@@ -37,6 +36,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        animator.SetBool("hasPackage",hasPackage);
+        var aux = direction.x != 0 || direction.y != 0 ? true : false;
+        animator.SetBool("isMoving", aux);
         if (packageSlot != null)
         {
             hasPackage = true;
@@ -47,7 +49,6 @@ public class Player : MonoBehaviour
 
     public void SetPackage(GameObject package)
     {
-
         packageSlot = package;
         package.transform.SetParent(this.transform);
         package.transform.localPosition = Vector3.zero;
@@ -67,24 +68,18 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        rb2D.MovePosition(rb2D.position + direction * speed * Time.deltaTime);
+        rb2D.MovePosition(rb2D.position + speed * Time.deltaTime * direction);
     }
 
     void OnMove(InputValue value)
     {
         direction = value.Get<Vector2>();
+        
     }
 
     public void OnMap()
     {
-        if (!map.enabled)
-        {
-            map.enabled = true;
-        }
-        else
-        {
-            map.enabled = false;
-        }
+        map.enabled = !map.enabled;
     }
 
     void OnAction()
@@ -130,6 +125,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Attack()
     {
+        animator.SetTrigger("Attack");
         isAttacking = true;
         attackHitbox.SetActive(true);
         yield return new WaitForSeconds(attackAnimationTime);
