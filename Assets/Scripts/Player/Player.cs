@@ -12,19 +12,20 @@ public class Player : MonoBehaviour
     [SerializeField] private Canvas map;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
-    private bool isStunned;
+    [SerializeField] private GameObject packageSlot;
+    [SerializeField] private Animator animator;
     public bool hasPackage;
     private Rigidbody2D rb2D;
     private bool isFacingRight;
     [SerializeField] private float attackAnimationTime;
     private bool isAttacking;
+    public bool isInteracting;
 
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         isAttacking = false;
-        isStunned = false;
         hasPackage = false;
     }
 
@@ -35,10 +36,24 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        animator.SetBool("hasPackage",hasPackage);
+        var aux = direction.x != 0 || direction.y != 0 ? true : false;
+        animator.SetBool("isMoving", aux);
+        if (packageSlot != null)
+        {
+            hasPackage = true;
+        }
         FlipCharacter();
     }
 
 
+    public void SetPackage(GameObject package)
+    {
+        packageSlot = package;
+        package.transform.SetParent(this.transform);
+        package.transform.localPosition = Vector3.zero;
+        hasPackage = true;
+    }
     private void FlipCharacter()
     {
         if (isFacingRight && direction.x < 0f)
@@ -53,52 +68,48 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        rb2D.MovePosition(rb2D.position + direction * speed * Time.deltaTime);
+        rb2D.MovePosition(rb2D.position + speed * Time.deltaTime * direction);
     }
 
     void OnMove(InputValue value)
     {
         direction = value.Get<Vector2>();
+        
     }
 
     public void OnMap()
     {
-        if (!map.enabled)
-        {
-            map.enabled = true;
-        }
-        else
-        {
-            map.enabled = false;
-        }
+        map.enabled = !map.enabled;
     }
 
     void OnAction()
     {
-        if (!isAttacking)
+        if (!isAttacking && !hasPackage)
         {
             StartCoroutine(Attack());
         }
-
-        switch (hasPackage)
-        {
-            case true:
-                DropPackage();
-                break;
-            case false:
-                TakePackage();
-                break;
-        }
     }
 
-    private void TakePackage()
+    void OnInteract(InputValue value)
     {
-        throw new System.NotImplementedException();
+
+        if (packageSlot != null)
+        {
+            DropPackage();
+        }
+        else  if (!isInteracting)
+        {
+            StartCoroutine(Interact());
+        }
+
     }
 
     private void DropPackage()
     {
-        throw new System.NotImplementedException();
+        packageSlot.transform.parent = null;
+        packageSlot.transform.position = transform.position + Vector3.down;
+        packageSlot = null;
+        hasPackage = false;
     }
 
     private void Flip()
@@ -114,6 +125,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Attack()
     {
+        animator.SetTrigger("Attack");
         isAttacking = true;
         attackHitbox.SetActive(true);
         yield return new WaitForSeconds(attackAnimationTime);
@@ -121,6 +133,21 @@ public class Player : MonoBehaviour
         isAttacking = false;
         yield break;
 
+    } IEnumerator Interact()
+    {
+        isInteracting = true;
+        yield return new WaitForSeconds(attackAnimationTime);
+        isInteracting = false;
+        yield break;
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Package") && !hasPackage && isInteracting)
+        {
+            SetPackage(collider.transform.gameObject);
+        }
     }
 
 }

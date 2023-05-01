@@ -2,41 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Building : MonoBehaviour
 {
+    public ZombieSpawn zombieSpawn;
     public static int count = 0;
     public int index = 0;
     public bool active = false;
     public bool delivered = false;
     public TMP_Text buildingText;
+    public GameObject package;
+    public string buildingMessage1 = "We already delovered your order, you have to deliver it!";
+    public string buildingMessage2 = "Here is your order";
+    public string buildingMessage3 = "You have no orders here";
+
 
 
     void Awake()
     {
         index = count;
         count++;
-        buildingText.text = "";
+        //buildingText.text = "";
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (active)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+
+            if (other.tag != "Player") return;
+            if (delivered)
             {
-                if (delivered)
-                {
-                    buildingText.text = "Ya te entregamos el pedido, no te lo vamos a volver a entregar";
-                }
-                else
-                {
-                    buildingText.text = "Toma tu pedido :)";
-                    delivered = true;
-                    // other.GetComponent<Player>().hasPackage = true;
-                }
+                buildingText.text = buildingMessage1;
             }
+            else
+            {
+                buildingText.text = buildingMessage2;
+                delivered = true;
+                zombieSpawn.SetZombieTarget(package);
+                other.GetComponent<Player>().SetPackage(package);
+            }
+        }
+        else
+        {
+            buildingText.text = buildingMessage3;
         }
     }
 }
