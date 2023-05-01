@@ -8,6 +8,9 @@ public class House : MonoBehaviour
     public int index = 0;
     public bool active = false;
 
+    public int position = 0;
+    public bool hasPosition = false;
+
     void Awake()
     {
         index = count;

@@ -333,8 +333,8 @@ GameObject:
   - component: {fileID: 1577668769034468651}
   - component: {fileID: 2125565112835420239}
   - component: {fileID: 1696854892576801359}
-  - component: {fileID: 4690724124986519713}
   - component: {fileID: 6701707918905388337}
+  - component: {fileID: -3830790847743412777}
   m_Layer: 0
   m_Name: House 2
   m_TagString: Untagged
@@ -457,24 +457,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4690724124986519713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644206595577480915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b04e8871a2deb4786531cd8b2840c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieSpawn: {fileID: 0}
-  index: 0
-  active: 0
-  delivered: 0
-  buildingText: {fileID: 0}
-  package: {fileID: 0}
 --- !u!61 &6701707918905388337
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -501,3 +483,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6859357, y: 2.826124}
   m_EdgeRadius: 0
+--- !u!114 &-3830790847743412777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644206595577480915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6567ce93e2be449a0a00026a77f224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  active: 0
+  position: 0
+  hasPosition: 0
