@@ -1,72 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using System;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI timer;
+    public struct DeliveryOrder
+    {
+        public int house;
+        public int building;
+    }
+    
+    [SerializeField] private GameObject bagPrefab = null;
+    [SerializeField] private Transform houses = null;
+    [SerializeField] private Transform buildings = null;
 
-    [SerializeField] private float maxTime;
-    [SerializeField] private int menuIndex;
-    [SerializeField] private GameObject GameOverScene;
-    [SerializeField] private GameObject PauseMenu;
-    [SerializeField] private GameObject InGameUi;
-    private bool pause = false;
-    private float time;
+    private House[] houseList;
+    private Building[] buildingList;
+
+    private DeliveryOrder actualOrder;
+    private DeliveryOrder nextOrder;
+
+    private Bag bag;
+    private int score = 0;
+
+    public static Action<int> OnBagRespawn;
+
+    private void Awake()
+    {
+        houseList = houses.GetComponentsInChildren<House>();
+        buildingList = buildings.GetComponentsInChildren<Building>();
+        actualOrder = CreateDeliveryRequest();
+        Bag.OnArrive += SwapDeliveryOrders;
+    }
+    private void OnDestroy()
+    {
+        Bag.OnArrive -= SwapDeliveryOrders;
+    }
 
     private void Start()
     {
-        time = maxTime;
-        GameOverScene.SetActive(false);
-        Time.timeScale = 1;
-        pause = false;
+        nextOrder = CreateDeliveryRequest();
+        score = 0;
     }
 
-    private void Update()
+    private void SwapDeliveryOrders(int score)
     {
-        if (!pause)
-        {
-            time -= Time.deltaTime;
-            int seconds = ((int)time % 60);
-            int minutes = ((int)time / 60);
-            timer.text = $"{minutes:00}:{seconds:00}";
-
-            if (time < 0)
-            {
-                GameOverScene.SetActive(true);
-                PauseMenu.SetActive(false);
-                InGameUi.SetActive(false);
-                pause = false;
-            }
-            Time.timeScale = 1;
-        }
-        else
-        {
-            Time.timeScale = 0;
-        }
-
-        if (!GameOverScene.activeSelf)
-        {
-            PauseMenu.SetActive(pause);
-            InGameUi.SetActive(!pause);
-        }
+        actualOrder = nextOrder;
+        nextOrder = CreateDeliveryRequest();
+        Bag.Attach(buildingList[actualOrder.building].transform);
     }
 
-    public void OnPause()
+    private DeliveryOrder CreateDeliveryRequest()
     {
-        pause = !pause;
+        DeliveryOrder delorder;
+        delorder.house = UnityEngine.Random.Range(0, houseList.Length);
+        delorder.building = UnityEngine.Random.Range(0, buildingList.Length);
+        Debug.Log("Deliver Order> From: Building " + delorder.building + " - To: House " + delorder.house);
+        return delorder;
     }
 
-    public void GoToMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-    public void Reset()
-    {
-        SceneManager.LoadScene(1);
-    }
+
+
 
 }

@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         {
             Move();
         }
+
     }
 
     void Update()
@@ -49,16 +50,17 @@ public class Player : MonoBehaviour
             hasPackage = true;
         }
         FlipCharacter();
+
     }
 
 
-    public void SetPackage(GameObject package)
+    public void SetPackage()
     {
         SoundManager.Instance.PlaySound(packageClip);
-        packageSlot = package;
-        package.transform.SetParent(this.transform);
-        package.transform.localPosition = Vector3.zero;
         hasPackage = true;
+        Bag.Instance.transform.SetParent(transform);
+        Bag.Instance.transform.localPosition = Vector3.zero;
+        Bag.isGrabbed = true;
     }
     private void FlipCharacter()
     {
@@ -79,17 +81,22 @@ public class Player : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
         direction = value.Get<Vector2>();
+        
+
 
     }
 
     public void OnMap()
     {
+        if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
         map.SetActive(!map.activeSelf); ;
     }
 
     void OnAction()
     {
+        if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
         if (!isAttacking && !hasPackage)
         {
             StartCoroutine(Attack());
@@ -113,10 +120,10 @@ public class Player : MonoBehaviour
     private void DropPackage()
     {
         SoundManager.Instance.PlaySound(packageClip);
-        packageSlot.transform.parent = null;
-        packageSlot.transform.position = transform.position + Vector3.down;
-        packageSlot = null;
+        Bag.Instance.transform.parent = null;
+        Bag.Instance.transform.position = transform.position + Vector3.down;
         hasPackage = false;
+        Bag.isGrabbed = false;
     }
 
     private void Flip()
@@ -155,7 +162,7 @@ public class Player : MonoBehaviour
     {
         if (collider.CompareTag("Package") && !hasPackage && isInteracting)
         {
-            SetPackage(collider.transform.gameObject);
+            SetPackage();
         }
     }
 
