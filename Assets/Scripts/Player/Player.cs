@@ -9,10 +9,13 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject attackHitbox;
     [SerializeField] private GameObject playerSprite;
+    [SerializeField] private GameObject map;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
-    [SerializeField] private GameObject packageSlot;
-    private bool isStunned;
+    //[SerializeField] private GameObject packageSlot;
+    [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip packageClip;
+    [SerializeField] private AudioClip attackClip;
     public bool hasPackage;
     private Rigidbody2D rb2D;
     private bool isFacingRight;
@@ -25,31 +28,36 @@ public class Player : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         isAttacking = false;
-        isStunned = false;
         hasPackage = false;
-    }
-
-    void Update()
-    {
-        if (packageSlot != null)
-        {
-            hasPackage = true;
-        }
-        FlipCharacter();
     }
 
     void FixedUpdate()
     {
-        Move();
+        if (!isAttacking)
+        {
+            Move();
+        }
+
     }
 
-    public void SetPackage(GameObject package)
+    void Update()
     {
+        //animator.SetBool("hasPackage", hasPackage);
+        var aux = direction.x != 0 || direction.y != 0 ? true : false;
+        //animator.SetBool("isMoving", aux);
 
-        packageSlot = package;
-        package.transform.SetParent(this.transform);
-        package.transform.localPosition = Vector3.zero;
+        FlipCharacter();
+
+    }
+
+
+    public void SetPackage()
+    {
+        //SoundManager.Instance.PlaySound(packageClip);
         hasPackage = true;
+        Bag.Instance.transform.SetParent(transform);
+        Bag.Instance.transform.localPosition = Vector3.zero;
+        Bag.isGrabbed = true;
     }
     private void FlipCharacter()
     {
@@ -65,16 +73,27 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        rb2D.MovePosition(rb2D.position + direction * speed * Time.deltaTime);
+        rb2D.MovePosition(rb2D.position + speed * Time.deltaTime * direction);
     }
 
     void OnMove(InputValue value)
     {
+        if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
         direction = value.Get<Vector2>();
+        
+
+
+    }
+
+    public void OnMap()
+    {
+        if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
+        map.SetActive(!map.activeSelf); ;
     }
 
     void OnAction()
     {
+        if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
         if (!isAttacking && !hasPackage)
         {
             StartCoroutine(Attack());
@@ -84,30 +103,31 @@ public class Player : MonoBehaviour
     void OnInteract(InputValue value)
     {
 
-        if (packageSlot != null)
+        if (hasPackage)
         {
             DropPackage();
         }
-        else  if (!isInteracting)
+        else if (!isInteracting)
         {
             StartCoroutine(Interact());
         }
 
     }
 
-    private void DropPackage()
+    public void DropPackage()
     {
-        packageSlot.transform.parent = null;
-        packageSlot.transform.position = transform.position + Vector3.down;
-        packageSlot = null;
+        //SoundManager.Instance.PlaySound(packageClip);
+        Bag.Instance.transform.parent = null;
+        Bag.Instance.transform.position = transform.position + Vector3.down;
         hasPackage = false;
+        Bag.isGrabbed = false;
     }
 
     private void Flip()
     {
         isFacingRight = !isFacingRight;
         var localScale = playerSprite.transform.localScale;
-        var localScale2 = playerSprite.transform.localScale;
+        var localScale2 = attackHitbox.transform.localScale;
         localScale.x *= -1f;
         localScale2.x *= -1f;
         playerSprite.transform.localScale = localScale;
@@ -116,6 +136,8 @@ public class Player : MonoBehaviour
 
     IEnumerator Attack()
     {
+        //SoundManager.Instance.PlaySound(attackClip);
+        //animator.SetTrigger("Attack");
         isAttacking = true;
         attackHitbox.SetActive(true);
         yield return new WaitForSeconds(attackAnimationTime);
@@ -123,7 +145,8 @@ public class Player : MonoBehaviour
         isAttacking = false;
         yield break;
 
-    } IEnumerator Interact()
+    }
+    IEnumerator Interact()
     {
         isInteracting = true;
         yield return new WaitForSeconds(attackAnimationTime);
@@ -136,7 +159,7 @@ public class Player : MonoBehaviour
     {
         if (collider.CompareTag("Package") && !hasPackage && isInteracting)
         {
-            SetPackage(collider.transform.gameObject);
+            SetPackage();
         }
     }
 

@@ -381,13 +381,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3019878451000067961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b04e8871a2deb4786531cd8b2840c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 6043dbca571e03443ab6be851915fa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombieSpawn: {fileID: 0}
   index: 0
   active: 0
   delivered: 0
-  buildingText: {fileID: 303656259813236230}
+  buildingText: {fileID: 0}
+  package: {fileID: 0}
+  buildingMessage1: We already delovered your order, you have to deliver it!
+  buildingMessage2: Here is your order
+  buildingMessage3: You have no orders here
 --- !u!61 &225066398006406299
 BoxCollider2D:
   m_ObjectHideFlags: 0

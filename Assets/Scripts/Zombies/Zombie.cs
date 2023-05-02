@@ -9,7 +9,6 @@ public class Zombie : MonoBehaviour
     [Header("Zombie Variables")]
 
     [SerializeField] private GameObject target;
-    [SerializeField] private GameObject bag;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject cemetery;
 
@@ -74,7 +73,7 @@ public class Zombie : MonoBehaviour
             animator.SetBool("hasPackage", true);
             animator.SetBool("isMoving", true);
 
-            bag.transform.position = transform.position;
+            Bag.Attach(transform);
             GetTargetDistance();
             if (zombieGrabbedPackage)
             {
@@ -82,7 +81,8 @@ public class Zombie : MonoBehaviour
                 {
                     hasABag = false;
                     zombieGrabbedPackage = false;
-                    //Destroy(bag);
+                    Bag.ResetBag(Destination.CEMENTERY);
+                    Bag.isGrabbed = false;
                     LoseHealth(health);
                     //Crear nuevo pedido y no dar puntos
                 }
@@ -96,7 +96,7 @@ public class Zombie : MonoBehaviour
         }
         else
         {
-            target = bag;
+            target = Bag.Instance.gameObject;
             animator.SetBool("hasPackage", false);
 
             if (!zombieGrabbedPackage)
@@ -104,8 +104,9 @@ public class Zombie : MonoBehaviour
                 if (IsInRangeToPick())
                 {
                     hasABag = true;
-                    bag.transform.parent = null;
+                    Bag.Instance.transform.parent = null;
                     zombieGrabbedPackage = true;
+                    Bag.isGrabbed = true;
                 }
             }
 
@@ -135,9 +136,9 @@ public class Zombie : MonoBehaviour
         transform.position = newPos;
     }
 
-    public void SetTarget(GameObject bag)
+    public void SetTarget(GameObject newTarget)
     {
-        this.bag = bag;
+        target = newTarget;
     }
 
     public void SetActiveState(bool state = true)
@@ -198,7 +199,7 @@ public class Zombie : MonoBehaviour
             yield return null;
         }
 
-         OnZombieDeath(this);
+        OnZombieDeath(this);
         gameObject.SetActive(IsAlive());
 
     }
