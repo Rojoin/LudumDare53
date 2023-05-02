@@ -9,7 +9,6 @@ public class Zombie : MonoBehaviour
     [Header("Zombie Variables")]
 
     [SerializeField] private GameObject target;
-    [SerializeField] private GameObject bag;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject cemetery;
 
@@ -18,6 +17,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private float addSpeed;
     [SerializeField] private float maxEnemyDistance;
     [SerializeField] private float maxDistanceToPick;
+    [SerializeField] private AudioClip hit;
 
     const int INITIAL_SPEED = 10;
     const float DEATH_ANIMATION_TIME = 1.05f;
@@ -35,6 +35,7 @@ public class Zombie : MonoBehaviour
     public Action<Zombie> OnZombieDeath;
 
     static int zombieCount = 0;
+    static bool zombieGrabbedPackage = false;
 
     private void Awake()
     {
@@ -73,12 +74,19 @@ public class Zombie : MonoBehaviour
             animator.SetBool("hasPackage", true);
             animator.SetBool("isMoving", true);
 
-            bag.transform.position = transform.position;
+            Bag.Attach(transform);
             GetTargetDistance();
-            if (IsInRangeToPick())
+            if (zombieGrabbedPackage)
             {
-                hasABag = false;
-                Destroy(bag);
+                if (IsInRangeToPick())
+                {
+                    hasABag = false;
+                    zombieGrabbedPackage = false;
+                    Bag.ResetBag(Destination.CEMENTERY);
+                    Bag.isGrabbed = false;
+                    LoseHealth(health);
+                    //Crear nuevo pedido y no dar puntos
+                }
             }
 
             var aux = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * currentSpeed);
@@ -89,13 +97,19 @@ public class Zombie : MonoBehaviour
         }
         else
         {
-            target = bag;
+            target = Bag.Instance.gameObject;
             animator.SetBool("hasPackage", false);
 
-            if (IsInRangeToPick())
+            if (!zombieGrabbedPackage)
             {
-                hasABag = true;
-                bag.transform.parent = null;
+                if (IsInRangeToPick())
+                {
+                    hasABag = true;
+                    Bag.Instance.transform.parent = null;
+                    zombieGrabbedPackage = true;
+                    Bag.isGrabbed = true;
+                    Player.hasPackage = false;
+                }
             }
 
             if (IsInRangeToChase())
@@ -124,9 +138,9 @@ public class Zombie : MonoBehaviour
         transform.position = newPos;
     }
 
-    public void SetTarget(GameObject bag)
+    public void SetTarget(GameObject newTarget)
     {
-        this.bag = bag;
+        target = newTarget;
     }
 
     public void SetActiveState(bool state = true)
@@ -170,6 +184,7 @@ public class Zombie : MonoBehaviour
     public void LoseHealth(int damage)
     {
         health -= damage;
+        SoundManager.Instance.PlaySound(hit);
         //Debug.Log(health);
         if (!IsAlive())
         {
@@ -187,7 +202,7 @@ public class Zombie : MonoBehaviour
             yield return null;
         }
 
-         OnZombieDeath(this);
+        OnZombieDeath(this);
         gameObject.SetActive(IsAlive());
 
     }

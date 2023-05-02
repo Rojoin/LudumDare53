@@ -26,6 +26,7 @@ public class GameManager2 : MonoBehaviour
     private void Start()
     {
         musicSource = SoundManager.Instance.GetMusicSource();
+        musicSource.loop = true;
         musicSource.clip = gameplayMusicClip;
         time = maxTime;
         DeactivateCanvasGroup(GameOverScene, false);
@@ -50,7 +51,8 @@ public class GameManager2 : MonoBehaviour
             time -= Time.deltaTime;
             int seconds = ((int)time % 60);
             int minutes = ((int)time / 60);
-            timer.text = $"{minutes:00}:{seconds:00}";
+    
+            timer.text = (string.Format("{0:00}:{1:00}", minutes, seconds));
 
             if (time < 0)
             {
@@ -62,6 +64,7 @@ public class GameManager2 : MonoBehaviour
                 GameOver = true;
                 canPlayerUpdate = false;
                 Time.timeScale = 1;
+        musicSource.loop = false;
             }
             canPlayerUpdate = true;
             Time.timeScale = 1;
@@ -97,6 +100,8 @@ public class GameManager2 : MonoBehaviour
 
     public void GoToMenu()
     {
+        musicSource.loop = true;
+        musicSource.clip = SoundManager.Instance.mainMenu;
         SceneManager.LoadScene(0);
     }
     public void Reset()

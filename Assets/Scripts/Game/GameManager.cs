@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         public int building;
     }
 
-    [SerializeField] private GameObject bagPrefab = null;
+
     [SerializeField] private Transform houses = null;
     [SerializeField] private Transform buildings = null;
 
@@ -20,11 +20,9 @@ public class GameManager : MonoBehaviour
 
     private DeliveryOrder actualOrder;
     private DeliveryOrder nextOrder;
-    private Score score;
 
-    private Bag bag;
 
-    public static Action<int, string, string> OnBagRespawn;
+
 
     private void Awake()
     {
@@ -50,6 +48,9 @@ public class GameManager : MonoBehaviour
 
     private void SwapDeliveryOrders(int score)
     {
+        buildingList[actualOrder.building].delivered = false;
+        buildingList[actualOrder.building].active = false;
+        houseList[actualOrder.house].active = false;
         actualOrder = nextOrder;
         buildingList[actualOrder.building].active = true;
         houseList[actualOrder.house].active = true;

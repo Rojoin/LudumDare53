@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AudioClip packageClip;
     [SerializeField] private AudioClip attackClip;
-    public bool hasPackage;
+    public static bool hasPackage;
     private Rigidbody2D rb2D;
     private bool isFacingRight;
     [SerializeField] private float attackAnimationTime;

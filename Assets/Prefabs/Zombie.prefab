@@ -122,14 +122,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  bag: {fileID: 0}
   rb: {fileID: 4395559045898289288}
   cemetery: {fileID: 0}
-  initialSpeed: 1
+  initialSpeed: 5
   currentSpeed: 0
   addSpeed: 0.002
   maxEnemyDistance: 5
-  maxDistanceToPick: 0.3
+  maxDistanceToPick: 0.8
+  hit: {fileID: 8300000, guid: 685b4c498a3bf6640b582c459e27788a, type: 3}
   hasABag: 0
   health: 5
   hasBeenAttacked: 0

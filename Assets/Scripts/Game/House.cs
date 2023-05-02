@@ -18,7 +18,7 @@ public class House : MonoBehaviour
     public int position = 0;
     public bool hasPosition = false;
 
-    string deliveryMessage = "Gracias capo, muchas gracias!";
+    string deliveryMessage = "Thanks capo!";
 
     void Awake()
     {
@@ -53,7 +53,7 @@ public class House : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             Player p = collision.GetComponent<Player>();
-            if (p.hasPackage)
+            if (Player.hasPackage)
             {
                 ShowMessage();
                 p.DropPackage();

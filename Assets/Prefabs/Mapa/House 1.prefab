@@ -497,6 +497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac11950a2552a094e885747560c19177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deliverText: {fileID: 4670516447631003474}
+  canvas: {fileID: 2328501564214348735}
+  messageTime: 3
   index: 0
   active: 0
   killOnStart: 0
