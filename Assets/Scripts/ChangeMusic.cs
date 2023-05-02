@@ -9,6 +9,7 @@ public class ChangeMusic : MonoBehaviour
     {
         SoundManager.Instance.GetMusicSource().clip = SoundManager.Instance.mainMenu;
         SoundManager.Instance.GetMusicSource().Play();
+        Screen.SetResolution(1280,720,false);
     }
 
     // Update is called once per frame

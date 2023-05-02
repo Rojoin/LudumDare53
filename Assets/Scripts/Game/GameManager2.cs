@@ -58,7 +58,6 @@ public class GameManager2 : MonoBehaviour
             {
                 DeactivateCanvasGroup(GameOverScene, true);
                 DeactivateCanvasGroup(PauseMenu, false);
-
                 InGameUi.SetActive(false);
                 pause = false;
                 GameOver = true;
@@ -72,7 +71,7 @@ public class GameManager2 : MonoBehaviour
         else
         {
             canPlayerUpdate = false;
-            Time.timeScale = 0;
+            Time.timeScale = 0.1f;
         }
 
         if (!GameOver)

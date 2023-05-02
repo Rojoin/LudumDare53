@@ -74,10 +74,11 @@ public class Player : MonoBehaviour
         rb2D.MovePosition(rb2D.position + speed * Time.deltaTime * direction);
     }
 
-    void OnMove(InputValue value)
+    public void OnMove(InputAction.CallbackContext value)
     {
-        if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
-        direction = value.Get<Vector2>();
+        Debug.Log("A" );
+         if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
+        direction = value.ReadValue<Vector2>();
         
 
 
@@ -85,20 +86,22 @@ public class Player : MonoBehaviour
 
     public void OnMap()
     {
+        Debug.Log("Entro1");
         if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
-        map.SetActive(!map.activeSelf); ;
+        Debug.Log("Entro2");
+        map.SetActive(!map.activeSelf); 
     }
 
-    void OnAction()
+   public void OnAction()
     {
-        if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
+         if (!GameManager2.canPlayerUpdate || GameManager2.GameOver) return;
         if (!isAttacking && !hasPackage)
         {
             StartCoroutine(Attack());
         }
     }
 
-    void OnInteract(InputValue value)
+    public void OnInteract()
     {
 
         if (hasPackage)
