@@ -19,8 +19,8 @@ public class Bag : MonoBehaviour
 
     public static Action<int> OnArrive;
 
-    private static int deliveryObjetive;
-    private static int deliveryInitial;
+    public static int deliveryObjetive;
+    public static int deliveryInitial;
 
     private SpriteRenderer sr = null;
 

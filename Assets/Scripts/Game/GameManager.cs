@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
         public int house;
         public int building;
     }
-    
+
     [SerializeField] private GameObject bagPrefab = null;
     [SerializeField] private Transform houses = null;
     [SerializeField] private Transform buildings = null;
@@ -47,8 +47,9 @@ public class GameManager : MonoBehaviour
     private void SwapDeliveryOrders(int score)
     {
         actualOrder = nextOrder;
-        nextOrder = CreateDeliveryRequest();
         Bag.Attach(buildingList[actualOrder.building].transform);
+        Bag.Instance.SetDeliveryOrder(actualOrder);
+        nextOrder = CreateDeliveryRequest();
     }
 
     private DeliveryOrder CreateDeliveryRequest()

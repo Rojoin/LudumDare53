@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5547537335771667360}
   - component: {fileID: 4707550330049211661}
   - component: {fileID: 3253103881819658048}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 3122371696930647504}
   - component: {fileID: 8005595287190287048}
   - component: {fileID: -6358393450593017702}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: House 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 8857188234784640558}
   - component: {fileID: 2906817697143367685}
   - component: {fileID: 3205914170612080461}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9025577714505637776}
   - component: {fileID: 2324813750931361609}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Dialogo Casita
   m_TagString: Untagged
   m_Icon: {fileID: 0}

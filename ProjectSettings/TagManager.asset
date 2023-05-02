@@ -37,8 +37,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - PlayerMINIMPAPA
+  - Minimapa
   m_SortingLayers:
   - name: Default
     uniqueID: 0
