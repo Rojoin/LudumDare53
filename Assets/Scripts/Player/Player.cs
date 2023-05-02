@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject map;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
-    [SerializeField] private GameObject packageSlot;
     [SerializeField] private Animator animator;
     [SerializeField] private AudioClip packageClip;
     [SerializeField] private AudioClip attackClip;
@@ -45,10 +44,6 @@ public class Player : MonoBehaviour
         animator.SetBool("hasPackage", hasPackage);
         var aux = direction.x != 0 || direction.y != 0 ? true : false;
         animator.SetBool("isMoving", aux);
-        if (packageSlot != null)
-        {
-            hasPackage = true;
-        }
         FlipCharacter();
 
     }
@@ -106,7 +101,7 @@ public class Player : MonoBehaviour
     void OnInteract(InputValue value)
     {
 
-        if (packageSlot != null)
+        if (hasPackage)
         {
             DropPackage();
         }
@@ -117,7 +112,7 @@ public class Player : MonoBehaviour
 
     }
 
-    private void DropPackage()
+    public void DropPackage()
     {
         SoundManager.Instance.PlaySound(packageClip);
         Bag.Instance.transform.parent = null;

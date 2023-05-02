@@ -62,7 +62,8 @@ public class Bag : MonoBehaviour
     }
     public static void ResetBag(Destination destination)
     {
-        OnArrive(destination == Destination.CEMENTERY ? 0 : deliveryScore);    
+        OnArrive(destination == Destination.CEMENTERY ? 0 : deliveryScore);
+        Score.AddScore(deliveryScore);
     }
 
     private void Update()

@@ -23,7 +23,6 @@ public class Building : MonoBehaviour
     {
         index = count;
         count++;
-        //buildingText.text = "";
     }
 
 

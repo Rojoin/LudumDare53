@@ -6,7 +6,7 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] TextMeshProUGUI highScore;
-    [SerializeField] Score scoreValue;
+
 
     void Start()
     {
@@ -15,7 +15,7 @@ public class GameOverScreen : MonoBehaviour
 
     void OnEnable()
     {
-        int finalScore = scoreValue.score;
+        int finalScore = Score.score;
         var highestScore = PlayerPrefs.GetFloat("HighScore");
 
         if (finalScore > highestScore)
