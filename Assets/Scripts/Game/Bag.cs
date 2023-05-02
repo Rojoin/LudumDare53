@@ -22,7 +22,7 @@ public class Bag : MonoBehaviour
     public static int deliveryObjetive;
     public static int deliveryInitial;
 
-    private SpriteRenderer sr = null;
+    public SpriteRenderer sr = null;
 
     public static Bag Instance
     {

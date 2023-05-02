@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
         Bag.Instance.transform.position = transform.position + Vector3.down;
         hasPackage = false;
         Bag.isGrabbed = false;
+        Bag.Instance.sr.enabled = true;
     }
 
     private void Flip()

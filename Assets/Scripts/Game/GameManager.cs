@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Transform houses = null;
     [SerializeField] private Transform buildings = null;
-
+    [SerializeField] private AudioClip notif;
     [SerializeField] private House[] houseList;
     private static Building[] buildingList;
 
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     private void SwapDeliveryOrders(int score)
     {
+        SoundManager.Instance.PlaySound(notif);
         buildingList[actualOrder.building].delivered = false;
         buildingList[actualOrder.building].active = false;
         houseList[actualOrder.house].active = false;

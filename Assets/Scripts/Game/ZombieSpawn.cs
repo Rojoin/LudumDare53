@@ -15,7 +15,7 @@ public class ZombieSpawn : MonoBehaviour
     [SerializeField] private GameObject cemetery;
 
     [Header("Zombie Related")]
-    [SerializeField] private GameObject zombiePrefab;
+    [SerializeField] private GameObject[] zombiePrefab;
     [SerializeField] private Transform spawnPoints;
     [SerializeField] private float timeRespawn;
     [SerializeField] private int maxZombies;
@@ -33,7 +33,8 @@ public class ZombieSpawn : MonoBehaviour
 
         for (int i = 0; i < maxZombies; i++)
         {
-            GameObject go = Instantiate(zombiePrefab, zombieListTransform);
+
+            GameObject go = Instantiate(zombiePrefab[Random.Range(0,zombiePrefab.Length)], zombieListTransform);
             Zombie z = go.GetComponent<Zombie>();
             go.name = "Zombie " + Zombie.GetZombieCount();
 

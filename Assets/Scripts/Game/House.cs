@@ -8,6 +8,7 @@ public class House : MonoBehaviour
     [SerializeField] private TMP_Text deliverText = null;
     [SerializeField] private Canvas canvas = null;
     [SerializeField] private int messageTime = 3;
+    [SerializeField] private AudioClip successClip;
 
 
     public static int count = 0;
@@ -57,6 +58,7 @@ public class House : MonoBehaviour
             {
                 ShowMessage();
                 p.DropPackage();
+                SoundManager.Instance.PlaySound(successClip);
                 Bag.ResetBag(Destination.HOUSE);
             }
         }
